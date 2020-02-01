@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <StartupObject>ProjetoTeste.ClasseTeste</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="ClasseTeste.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="vstsln_teste\vst_ClasseTeste2.cs" />
+  </ItemGroup>
+</Project>
