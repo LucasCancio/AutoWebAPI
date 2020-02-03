@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeeSharpTemplateGUI", "VeeS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteConsole", "TesteConsole\TesteConsole.csproj", "{F4A887C1-8538-416B-83BB-8811CC794211}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteMVC", "TesteMVC\TesteMVC.csproj", "{BD90A98B-5168-43D1-A418-D2C15862689A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F4A887C1-8538-416B-83BB-8811CC794211}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4A887C1-8538-416B-83BB-8811CC794211}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4A887C1-8538-416B-83BB-8811CC794211}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD90A98B-5168-43D1-A418-D2C15862689A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD90A98B-5168-43D1-A418-D2C15862689A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD90A98B-5168-43D1-A418-D2C15862689A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD90A98B-5168-43D1-A418-D2C15862689A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

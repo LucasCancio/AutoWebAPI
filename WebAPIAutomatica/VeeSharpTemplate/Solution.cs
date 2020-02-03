@@ -59,7 +59,7 @@ namespace VeeSharpTemplate
         }
         public void SaveToFile()
         {
-            var xmlWriter = new XmlTextWriter(System.IO.File.CreateText(Path)) {Formatting = Formatting.Indented};
+            var xmlWriter = new XmlTextWriter(System.IO.File.CreateText(Path)) { Formatting = Formatting.Indented };
             xmlWriter.WriteStartElement(Utils.XmlRoot);
 
             xmlWriter.WriteElementString(Utils.XmlProjectFileName, ProjectFileName);
@@ -71,27 +71,20 @@ namespace VeeSharpTemplate
             xmlWriter.Close();
         }
 
-        public void Generate(List<string> mParsedPreviews,Solution solution,string code, bool mMakeProjectBackup = true)
+        public void Generate(List<string> mParsedPreviews, string code,string projectPath, bool mMakeProjectBackup = true)
         {
             //Projeto destino
-            //_projectPath= @"C:\Users\Lucas\Desktop\WorkspaceV\WebAPIAutomatica\TesteConsole";
-            string projectDirectory = System.IO.Directory.GetCurrentDirectory();
-            _projectPath = projectDirectory.Substring(0, projectDirectory.IndexOf("\\bin"));
+            //_projectPath= @"C:\Users\Lucas\Desktop\Projects\WebAPIAutomatica\TesteConsole";
+            _projectPath = projectPath;
 
-            ProjectFileName = _projectPath + @"\" + System.Reflection.Assembly.GetEntryAssembly().GetName().Name + ".csproj"; 
-
-            
-            
-
+            ProjectFileName = _projectPath + @"\" + System.Reflection.Assembly.GetEntryAssembly().GetName().Name + ".csproj";
 
             if (string.IsNullOrEmpty(_projectPath)) throw new Exception("Project path is invalid");
             if (string.IsNullOrEmpty(ProjectFileName)) throw new Exception("Project filename is invalid");
 
             var filenames = new List<string>();
 
-
-
-            
+            #region  Criação do arquivo.cs
 
             foreach (var templateFile in Files)
             {
@@ -113,15 +106,23 @@ namespace VeeSharpTemplate
                 streamWriter.Close();
             }
 
-            if (mMakeProjectBackup)
-            {
-                var projectBackup = System.IO.File.CreateText(string.Format(ProjectFileName + Utils.ExtensionBackup));
-                var projectStream = System.IO.File.OpenText(ProjectFileName);
-                projectBackup.Write(projectStream.ReadToEnd());
-                projectStream.Close();
-                projectBackup.Flush();
-                projectBackup.Close();
-            }
+            #endregion
+
+            #region Backup
+
+            //if (mMakeProjectBackup)
+            //{
+            //    var projectBackup = System.IO.File.CreateText(string.Format(ProjectFileName + Utils.ExtensionBackup));
+            //    var projectStream = System.IO.File.OpenText(ProjectFileName);
+            //    projectBackup.Write(projectStream.ReadToEnd());
+            //    projectStream.Close();
+            //    projectBackup.Flush();
+            //    projectBackup.Close();
+            //}
+
+            #endregion
+
+            #region Compilar arquivo
 
             var xmlDocument = new XmlDocument();
             xmlDocument.Load(ProjectFileName);
@@ -153,6 +154,8 @@ namespace VeeSharpTemplate
             }
 
             xmlDocument.Save(ProjectFileName);
+
+            #endregion
         }
     }
 }

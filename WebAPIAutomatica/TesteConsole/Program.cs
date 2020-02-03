@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using VeeSharpTemplate;
@@ -30,13 +31,20 @@ namespace TesteConsole
             try
             {
                 
-                var file = new File(solution, "ClasseTeste4");
+                var file = new File(solution, "TesteAPI");
                 solution.Files.Add(file);
 
-                var code = "using System;\r\nnamespace TesteConsole{\r\n\r\nclass " + file.FileName + "{ public void Testar(){var a = new ClasseTeste3().Testar();} \r\n\r\n}\r\n}";
-                
+                //Projeto destino
+                //_projectPath= @"C:\Users\Lucas\Desktop\Projects\WebAPIAutomatica\TesteConsole";
+                string projectDirectory = System.IO.Directory.GetCurrentDirectory();
+                string projectPath = projectDirectory.Substring(0, projectDirectory.IndexOf("\\bin")); //ClassTemplate.txt
+                string templatePath = projectPath + @"\ClassTemplate.txt";
 
-                solution.Generate(previews,solution,code);
+                 //var code = "using System;\r\nnamespace TesteConsole{\r\n\r\nclass " + file.FileName + "{ public void Testar(){var b = new ClasseTeste3().Testar();} \r\n\r\n}\r\n}";
+                 var code = System.IO.File.ReadAllText(templatePath, Encoding.UTF8);
+                 code.Replace("%className%", file.FileName);
+
+                solution.Generate(previews,code,projectPath);
             }
             catch (Exception exception)
             {
@@ -51,7 +59,32 @@ namespace TesteConsole
 
 
 
+        //public static string RenderViewToString(ControllerContext context, string viewPath, object model = null, bool partial = false)
+        //{
+        //    // first find the ViewEngine for this view
+        //    ViewEngineResult viewEngineResult = null;
+        //    if (partial)
+        //        viewEngineResult = ViewEngines.Engines.FindPartialView(context, viewPath);
+        //    else
+        //        viewEngineResult = ViewEngines.Engines.FindView(context, viewPath, null);
 
+        //    if (viewEngineResult == null)
+        //        throw new FileNotFoundException("View not found.");
+
+        //    // get the view and attach the model to view data
+        //    var view = viewEngineResult.View;
+        //    context.Controller.ViewData.Model = model;
+
+        //    string result = null;
+        //    using (var sw = new StringWriter())
+        //    {
+        //        var ctx = new ViewContext(context, view, context.Controller.ViewData, context.Controller.TempData, sw);
+        //        view.Render(ctx, sw);
+        //        result = sw.ToString();
+        //    }
+        //    return result;
+
+        //}
 
 
 
