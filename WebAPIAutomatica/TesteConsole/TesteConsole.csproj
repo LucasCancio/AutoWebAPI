@@ -92,4 +92,7 @@
   <ItemGroup>
     <Content Include="ClassTemplate.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="teste2\TesteAPI.cs" />
+  </ItemGroup>
 </Project>

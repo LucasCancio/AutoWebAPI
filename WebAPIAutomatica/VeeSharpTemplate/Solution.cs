@@ -92,6 +92,7 @@ namespace VeeSharpTemplate
 
                 var parsed = Parser.ParseSymbols(templateFile.Code);
                 mParsedPreviews.Add(parsed);
+                //Gera o Assembly do arquivo
                 var processed = Parser.Process(parsed);
                 var folderPath = _projectPath + @"\" + templateFile.Folder;
 

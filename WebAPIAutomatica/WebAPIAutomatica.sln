@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteConsole", "TesteConsol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteMVC", "TesteMVC\TesteMVC.csproj", "{BD90A98B-5168-43D1-A418-D2C15862689A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphQLConsole", "GraphQLConsole\GraphQLConsole.csproj", "{CC3BD3DA-20B1-4D78-B47D-F940F07E6FD7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{BD90A98B-5168-43D1-A418-D2C15862689A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD90A98B-5168-43D1-A418-D2C15862689A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD90A98B-5168-43D1-A418-D2C15862689A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC3BD3DA-20B1-4D78-B47D-F940F07E6FD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC3BD3DA-20B1-4D78-B47D-F940F07E6FD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC3BD3DA-20B1-4D78-B47D-F940F07E6FD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC3BD3DA-20B1-4D78-B47D-F940F07E6FD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
